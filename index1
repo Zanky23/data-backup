@@ -1,0 +1,79 @@
+import random
+
+class DataBackupTest:
+    def __init__(self):
+        self.questions = [
+            {
+                "question": "What is the primary purpose of data backup?",
+                "options": ["To delete data", "To create more storage space", "To protect against data loss", "To share data with others"],
+                "correct_answer": "To protect against data loss"
+            },
+            {
+                "question": "How often should you perform data backups?",
+                "options": ["Never", "Once a year", "Regularly and consistently", "Only when there's a problem"],
+                "correct_answer": "Regularly and consistently"
+            },
+            {
+                "question": "What is a full backup?",
+                "options": ["Backing up only new data", "Backing up the entire system", "Backing up data to the cloud", "Backing up data selectively"],
+                "correct_answer": "Backing up the entire system"
+            },
+            {
+                "question": "Why is offsite backup important?",
+                "options": ["It's not important", "To access data faster", "To protect against physical disasters", "To save storage space"],
+                "correct_answer": "To protect against physical disasters"
+            },
+            {
+                "question": "What is versioning in data backup?",
+                "options": ["Backing up data once", "Keeping multiple versions of the same file over time", "Deleting old backups", "Ignoring backup history"],
+                "correct_answer": "Keeping multiple versions of the same file over time"
+            },
+            {
+                "question": "Which of the following is a common backup storage device?",
+                "options": ["CD-ROM", "Floppy disk", "Hard drive", "All of the above"],
+                "correct_answer": "All of the above"
+            },
+            {
+                "question": "What is the 3-2-1 backup rule?",
+                "options": ["Backup at 3 AM every day", "Have 3 copies of your data, 2 of which are on-site and 1 off-site", "Backup 3 times a week", "Backup on 3 different devices"],
+                "correct_answer": "Have 3 copies of your data, 2 of which are on-site and 1 off-site"
+            },
+            {
+                "question": "What is the difference between a differential backup and an incremental backup?",
+                "options": ["There is no difference", "Differential backups include all changes since the last full backup, while incremental backups only include changes since the last backup, whether it's full or incremental", "Incremental backups include all changes since the last full backup, while differential backups only include changes since the last backup, whether it's full or incremental", "Differential backups are faster"],
+                "correct_answer": "Differential backups include all changes since the last full backup, while incremental backups only include changes since the last backup, whether it's full or incremental"
+            },
+            {
+                "question": "What is RAID in the context of data storage?",
+                "options": ["A type of backup software", "A type of backup hardware", "A redundant array of independent disks for data storage", "A cloud storage service"],
+                "correct_answer": "A redundant array of independent disks for data storage"
+            },
+            {
+                "question": "Why is testing your backups important?",
+                "options": ["To waste time", "To ensure they are functioning correctly and can be restored", "To delete unnecessary files", "To avoid backing up data"],
+                "correct_answer": "To ensure they are functioning correctly and can be restored"
+            },
+        ]
+
+    def run_test(self):
+        score = 0
+        for i, question in enumerate(self.questions, 1):
+            print(f"\nQuestion {i}: {question['question']}")
+            for j, option in enumerate(question['options'], 1):
+                print(f"{j}. {option}")
+            user_answer = input("Enter the number of your answer: ")
+            if user_answer.isdigit() and 1 <= int(user_answer) <= 4:
+                user_answer = int(user_answer)
+                if question['options'][user_answer - 1] == question['correct_answer']:
+                    print("Correct!\n")
+                    score += 1
+                else:
+                    print(f"Wrong! The correct answer is: {question['correct_answer']}\n")
+            else:
+                print("Invalid input. Please enter a number between 1 and 4.\n")
+
+        print(f"Your final score is: {score}/{len(self.questions)}")
+
+if __name__ == "__main__":
+    test = DataBackupTest()
+    test.run_test()
